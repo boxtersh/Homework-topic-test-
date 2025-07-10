@@ -3,6 +3,7 @@ def find_substr(text: str, pattern: str) -> int:
     """
     Поиск первого вхождения (индекс)
     подстроки pattern в строке text
+    Пример:
     text = "hello, world!"
     pattern = "world"
     -> 7
@@ -11,9 +12,23 @@ def find_substr(text: str, pattern: str) -> int:
     :param pattern: Подстрока
     :return: индекс первого вхождения
     """
-
     return text.find(pattern)
+
 # *************** Тестирование ДЗ №2 *********************************************
+def find_elem(lst: list, value) -> int:
+    """
+    Поиск первого искомого элемента в списке
+    Пример:
+    lst = [1,2,3,1,4,5], value = 2
+    -> 1
+    :param lst: список
+    :param value: элемент
+    :return: индекс найденного элемента
+    """
+    if value in lst:
+        return lst.index(value)
+
+    return -1
 
 # *************** Тестирование ДЗ №3 *********************************************
 
