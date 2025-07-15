@@ -136,7 +136,7 @@ def test_reverse_positive():
 
     assert result == expected, f'Ожидалось: {expected}, получили: {result}'
 
-
+# *************** Тестирование ДЗ №5 *********************************************
 def test_reverse_parameter_not_str():
 
     s = 4
