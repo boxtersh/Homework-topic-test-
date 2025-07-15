@@ -145,3 +145,27 @@ def test_reverse_parameter_not_str():
         main.reverse_words(s)
 
 
+def test_is_positive_palindrome_yes():
+
+    s = '1 2  3   4   54 3  2  1'
+    expected = True
+
+    result = main.is_palindrome(s)
+
+    assert result == expected, f'Ожидали получить {expected}, получили {result}'
+
+
+def test_is_positive_palindrome_no():
+
+    s = '1 2  3   4   5'
+    expected = False
+
+    result = main.is_palindrome(s)
+
+    assert result == expected, f'Ожидали получить {expected}, получили {result}'
+
+def test_is_palindrome_parameter_not_str():
+    s = 5
+
+    with pytest.raises(TypeError,f'Ожидали получить <class str>, получили {type(s)}'):
+        main.is_palindrome(s)
