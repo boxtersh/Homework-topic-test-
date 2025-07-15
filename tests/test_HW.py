@@ -136,7 +136,7 @@ def test_reverse_positive():
 
     assert result == expected, f'Ожидалось: {expected}, получили: {result}'
 
-# *************** Тестирование ДЗ №5 *********************************************
+
 def test_reverse_parameter_not_str():
 
     s = 4
@@ -144,7 +144,7 @@ def test_reverse_parameter_not_str():
     with pytest.raises(TypeError,f'Ожидалось: <class str>, получили: {type(s)}'):
         main.reverse_words(s)
 
-
+# *************** Тестирование ДЗ №5 *********************************************
 def test_is_positive_palindrome_yes():
 
     s = '1 2  3   4   54 3  2  1'
