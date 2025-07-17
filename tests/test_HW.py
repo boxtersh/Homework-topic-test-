@@ -123,7 +123,7 @@ def test_count_parameter_not_list():
     lst = 4
     value = 5
 
-    with pytest.raises(TypeError,f'Ожидалось: <class list>, получили: {type(lst)}'):
+    with pytest.raises(TypeError):
         main.count_occurrences(lst, value)
 
 # *************** Тестирование ДЗ №4 *********************************************

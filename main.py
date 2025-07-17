@@ -10,7 +10,7 @@ def __check_parameter_for_list(lst: list)->None:
 # *************** Тестирование ДЗ №1 *********************************************
 def find_substr(text: str, pattern: str) -> int:
     """
-    Поиск первого вхождения (индекс) подстроки pattern в строке text
+    Возвращает индекс первого вхождения подстроки pattern в строке text
     Пример:
     text = "hello, world!"
     pattern = "world"
@@ -23,12 +23,19 @@ def find_substr(text: str, pattern: str) -> int:
     __check_parameter_for_str(text)
     __check_parameter_for_str(pattern)
 
-    return text.find(pattern)
+    len_pattern = len(pattern)
+    if pattern[0] in text:
+        for i in range(len(text)):
+            if text[i] == pattern[0]:
+                if text[i:i + len_pattern] == pattern:
+                    return i
+
+    return -1
 
 # *************** Тестирование ДЗ №2 *********************************************
 def find_elem(lst: list, value) -> int:
     """
-    Поиск первого искомого элемента в списке
+    Возвращает индекс первого найденного элемента в списке
     Пример:
     lst = [1,2,3,1,4,5]
     value = 2
@@ -40,14 +47,16 @@ def find_elem(lst: list, value) -> int:
     __check_parameter_for_list(lst)
 
     if value in lst:
-        return lst.index(value)
+        for i in range(len(lst)):
+            if lst[i] == value:
+                return i
 
     return -1
 
 # *************** Тестирование ДЗ №3 *********************************************
 def count_occurrences(lst: list, value) -> int:
     """
-    Поиск количества вхождений искомого элемента в списке
+    Возвращает количество вхождений искомого элемента в списке
     Пример:
     lst = [1,2,3,1,4,3]
     value = 3
@@ -59,7 +68,14 @@ def count_occurrences(lst: list, value) -> int:
     __check_parameter_for_list(lst)
 
     if value in lst:
-        return lst.count(value)
+        count = 0
+
+        for elm in lst:
+
+            if elm == value:
+                count += 1
+
+        return count
 
     return -1
 
@@ -75,7 +91,24 @@ def reverse_words(s: str) -> str:
     """
     __check_parameter_for_str(s)
 
-    return ' '.join(s.split(' ')[::-1])
+    flag = True
+    new_s = ''
+    buff_i = None
+    for i in range(-1, -(len(s) + 1), -1):
+        if s[i] == ' ':
+            if flag:
+                new_s += s[i + 1:]
+                buff_i = i
+                flag = False
+
+            else:
+                new_s += s[i:buff_i]
+                buff_i = i
+
+        if i == -len(s):
+            new_s += ' ' + s[:buff_i]
+
+    return new_s
 
 # *************** Тестирование ДЗ №5 *********************************************
 def is_palindrome(s: str) -> bool:
