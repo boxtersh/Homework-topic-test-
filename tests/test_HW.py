@@ -29,7 +29,7 @@ def test_typeerror_param_text():
     text = 13
     pattern = 'world'
 
-    with pytest.raises(TypeError,f'Ожидалось: <class str>, получили: {type(text)}'):
+    with pytest.raises(TypeError):
         main.find_substr(text, pattern)
 
 
@@ -38,7 +38,7 @@ def test_typeerror_param_pattern():
     text = 'hello, world!'
     pattern = 3
 
-    with pytest.raises(TypeError,f'Ожидалось: <class str>, получили: {type(pattern)}'):
+    with pytest.raises(TypeError):
         main.find_substr(text, pattern)
 
 
@@ -81,7 +81,7 @@ def test_parameter_not_list():
     lst = 4
     value = 5
 
-    with pytest.raises(TypeError,f'Ожидалось: <class list>, получили: {type(lst)}'):
+    with pytest.raises(TypeError):
         main.find_elem(lst, value)
 
 # *************** Тестирование ДЗ №3 *********************************************
@@ -141,7 +141,7 @@ def test_reverse_parameter_not_str():
 
     s = 4
 
-    with pytest.raises(TypeError,f'Ожидалось: <class str>, получили: {type(s)}'):
+    with pytest.raises(TypeError):
         main.reverse_words(s)
 
 # *************** Тестирование ДЗ №5 *********************************************
@@ -167,5 +167,5 @@ def test_is_positive_palindrome_no():
 def test_is_palindrome_parameter_not_str():
     s = 5
 
-    with pytest.raises(TypeError,f'Ожидали получить <class str>, получили {type(s)}'):
+    with pytest.raises(TypeError):
         main.is_palindrome(s)
